@@ -1,0 +1,22 @@
+﻿@using Yazlab3_AramaMotoru2.Operations
+@{
+    ViewBag.Title = "Index";
+}
+@{ 
+    string url = "http://bilgisayar.kocaeli.edu.tr/";
+    string html = SiteSource.GetHtml(url);
+    List<string> subUrls = SiteSource.GetSubUrls(html);
+    foreach(string subUrl in subUrls)
+    {
+        <span>@subUrl</span>
+    }
+    url = "http://sibertehdit.com/";
+    html = SiteSource.GetHtml(url);
+    subUrls = SiteSource.GetSubUrls(html);
+    foreach (string subUrl in subUrls)
+    {
+        <br /><span>@subUrl</span>
+    }
+}
+<h2>Index</h2>
+

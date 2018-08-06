@@ -1,0 +1,26 @@
+﻿@model Yazlab3_AramaMotoru2.Models.SayfaUrlSiralaModel
+@{
+    ViewBag.Title = "Index";
+}
+@{ 
+    int counter = 0;
+}
+@foreach (var urlDetail in Model.UrlDetailsDesc)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                @urlDetail.Url sitesi
+                @foreach (var keyword in urlDetail.Keywords)
+                {
+                    <span>"@keyword.Word-@keyword.Count",</span>
+                }
+                <span>kelimeleri için aldığı puan : @urlDetail.PointSum</span>
+            </p>
+        </div>
+        @{
+            counter++;
+        }
+    </div>
+}
+

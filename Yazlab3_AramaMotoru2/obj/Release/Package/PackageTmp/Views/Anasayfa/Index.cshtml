@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="box-search">
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <input type="text" id="words" class="form-control" data-role="tagsinput" placeholder="Anahtar Kelime Ekle..." />
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center">
+                <input type="text" id="urls" class="form-control" data-role="tagsinput" placeholder="Url Ekle..." />
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center">
+                <button id="adim1" class="btn btn-success">1.ADIM</button>
+                <button id="adim2" class="btn btn-info">2.ADIM</button>
+                <button id="adim3" class="btn btn-warning">3.ADIM</button>
+                <button id="adim4" class="btn btn-danger">4.ADIM</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $('document').ready(function () {
+            $('#adim1').click(function () {
+                var url = "?urls=" + $('#urls').val() + '&words=' + $('#words').val();
+                window.location.href = "/AnahtarKelimeSaydir" + url;
+            });
+            $('#adim2').click(function () {
+                var url = "?urls=" + $('#urls').val() + '&words=' + $('#words').val();
+                window.location.href = "/SayfaUrlSirala" + url;
+            });
+            $('#adim3').click(function () {
+                var url = "?urls=" + $('#urls').val() + '&words=' + $('#words').val();
+                window.location.href = "/SiteSirala" + url;
+            });
+            $('#adim4').click(function () {
+                var url = "?urls=" + $('#urls').val() + '&words=' + $('#words').val();
+                window.location.href = "/SemantikAnaliz" + url;
+            });
+        });
+    </script>
+}
+
+
+
+

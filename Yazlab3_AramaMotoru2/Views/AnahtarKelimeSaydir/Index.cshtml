@@ -1,0 +1,18 @@
+﻿@model Yazlab3_AramaMotoru2.Models.AnahtarKelimeSaydirModel
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    int counter = 0;
+}
+@foreach (var item in Model.keywords)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <p> @counter) "@item.Word" kelimesi @item.Url adresinde @item.Count.ToString() defa geçmiştir. </p>
+        </div>
+        @{
+            counter++;
+        }
+    </div>
+}

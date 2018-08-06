@@ -1,0 +1,60 @@
+﻿@model Yazlab3_AramaMotoru2.Models.SemantikAnalizModel
+@using Yazlab3_AramaMotoru2.Operations
+@{
+    ViewBag.Title = "Index";
+}
+@foreach(var synonym in Model.Synonyms)
+{
+    <div>
+        <span>Ana sözcük : @synonym.Source</span>
+        <span> --- </span>
+        <span>İlk Eş Anlamlısı : @synonym.WordFirst</span>
+        <span> --- </span>
+        <span>Eş Anlamlıları : </span>
+        @foreach(var word in synonym.Words)
+        {
+            <span>@word.ToString(),</span>
+        }
+    </div>
+}
+<div class="row">
+    <div class="col-md-12">
+        @Html.Raw(Model.OrgChat)
+    </div>
+</div>
+
+@foreach (var item in Model.SubUrlDetails)
+{
+    var padLeft = (item.Depth == 1) ? 0 : ((item.Depth == 2) ? 40 : 80);
+    <div class="row">
+        <div class="col-md-12">
+            <div style="padding-left:@String.Format("{0}px",padLeft)">
+                <div><span>Id:</span> @item.Id.ToString() <span>Parent Id:</span> @item.ParentId <span>Depth:</span> @item.Depth <span>-</span> @item.Url</div>
+                @foreach (var keyword in item.UrlDetail.Keywords)
+                {
+                    <div>Kelime : @keyword.Word <span>-</span> @keyword.Count.ToString() <span>kez bu url de geçti.</span></div>
+                }
+                <div>Aldığı Puan : @item.UrlDetail.PointSum</div>
+                <br />
+            </div>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var item in Model.Links)
+        {
+            <a href="@item" target="_blank">@item</a> <br />
+        }
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+
+        });
+        function log(text) {
+            $('#consoleOutput').append('<p>' + text + '</p>')
+        }
+    </script>
+}
