@@ -1,8 +1,8 @@
 # Search Engine
-Search engine with Asp.Net. Functionalities;
--Keyword count
--Url sorting
--Site sorting
+Search engine with Asp.Net. Functionalities;<br>
+-Keyword count<br>
+-Url sorting<br>
+-Site sorting<br>
 -Semantic analysis
 
 ## Credits
